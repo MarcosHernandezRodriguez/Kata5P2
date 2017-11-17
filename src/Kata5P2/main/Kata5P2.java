@@ -13,6 +13,7 @@ import Kata5P2.model.Mail;
 import Kata5P2.view.HistogramDisplay;
 import Kata5P2.view.MailHistogramBuilder;
 import Kata5P2.view.MailListReaderDDBB;
+import java.sql.SQLException;
 
 /**
  *
@@ -41,9 +42,9 @@ public class Kata5P2 {
         output();
     }
     
-    private void input() throws IOException{
+    private void input() throws IOException, FileNotFoundException, ClassNotFoundException, SQLException{
         filename = "C:\\Users\\Marcos\\Documents\\NetBeansProjects\\Kata4\\src\\emails.txt";
-        mailList = MailListReaderDDBB.read(filename);
+        mailList = MailListReaderDDBB.read();
     }
     
     private void process() throws Exception{

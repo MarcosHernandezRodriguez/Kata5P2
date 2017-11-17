@@ -28,8 +28,8 @@ public class MailListReaderDDBB {
     /* el objetivo de esta clase es leer del fichero de texto los emails
     (deserializar) y crear una lista de correos. */
     
-    public static ArrayList<String> readDDBB() throws FileNotFoundException, IOException, ClassNotFoundException, SQLException{
-        ArrayList<String> mailList = new ArrayList<>();
+    public static List<Mail> read() throws FileNotFoundException, IOException, ClassNotFoundException, SQLException{
+        List<Mail> mailList = new ArrayList<>();
         
         Class.forName("org.sqlite.JDBC");
         Connection connection = DriverManager.getConnection("jdbc:sqlite:C:/Users/Marcos/PEOPLE.db");
@@ -39,12 +39,9 @@ public class MailListReaderDDBB {
         while(rs.next()){
             String mail = rs.getString("mail");
             if(!mail.contains("@")) continue;
-            mailList.add(mail);
+            mailList.add(new Mail(mail));
         }
         return mailList;
     }
 
-    public static List<Mail> read(String filename) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }
