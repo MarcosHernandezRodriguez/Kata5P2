@@ -12,7 +12,7 @@ import Kata5P2.model.Histogram;
 import Kata5P2.model.Mail;
 import Kata5P2.view.HistogramDisplay;
 import Kata5P2.view.MailHistogramBuilder;
-import Kata5P2.view.MailListReader;
+import Kata5P2.view.MailListReaderDDBB;
 
 /**
  *
@@ -43,7 +43,7 @@ public class Kata5P2 {
     
     private void input() throws IOException{
         filename = "C:\\Users\\Marcos\\Documents\\NetBeansProjects\\Kata4\\src\\emails.txt";
-        mailList = MailListReader.read(filename);
+        mailList = MailListReaderDDBB.read(filename);
     }
     
     private void process() throws Exception{
